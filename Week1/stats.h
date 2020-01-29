@@ -36,5 +36,71 @@
  * @return <Add Return Informaiton here>
  */
 
+/**
+ * @brief Main function. The main entry point for your program
+ * 
+ */
+void main(void);
+
+/**
+ * @brief A function that prints the statistics of an array including minimum, maximum, mean, and median.
+ * 
+ * @param char 
+ * @param arr_size 
+ */
+void print_statistics(unsigned char* element_arr, unsigned int arr_size);
+
+/**
+ * @brief Given an array of data and a length, prints the array to the screen
+ * 
+ * @param char 
+ * @param arr_size 
+ */
+void print_array(unsigned char* element_arr, unsigned int arr_size);
+
+/**
+ * @brief Given an array of data and a length, returns the median value
+ * 
+ * @param char 
+ * @param arr_size 
+ * @return unsigned char 
+ */
+unsigned char find_median(unsigned char* element_arr, unsigned int arr_size);
+
+/**
+ * @brief Given an array of data and a length, returns the mean
+ * 
+ * @param char 
+ * @param arr_size 
+ * @return unsigned char 
+ */
+unsigned char find_mean(unsigned char* element_arr, unsigned int arr_size);
+
+/**
+ * @brief Given an array of data and a length, returns the maximum
+ * 
+ * @param char 
+ * @param arr_size 
+ * @return unsigned char 
+ */
+unsigned char find_maximum(unsigned char* element_arr, unsigned int arr_size);
+
+/**
+ * @brief Given an array of data and a length, returns the minimum
+ * 
+ * @param char 
+ * @param arr_size 
+ * @return unsigned char 
+ */
+unsigned char find_minimum(unsigned char* element_arr, unsigned int arr_size);
+
+/**
+ * @brief Given an array of data and a length, sorts the array from largest to smallest. 
+ * (The zeroth Element should be the largest value, and the last element (n-1) should be the smallest value. )
+ * 
+ * @param char 
+ * @param arr_size 
+ */
+void sort_array(unsigned char* element_arr, unsigned int arr_size);
 
 #endif /* __STATS_H__ */
