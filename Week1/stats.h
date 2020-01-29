@@ -101,22 +101,15 @@ unsigned char find_minimum(unsigned char* element_arr, unsigned int arr_size);
  * @param char 
  * @param arr_size 
  */
-void sort_array(unsigned char* element_arr, unsigned int arr_size);
+void sort_array(unsigned char* element_arr, unsigned char arr_size);
 
 /**
  * @brief Implements the merge of merge and sort algorithm
+ * Adapted from: https://rosettacode.org/wiki/Sorting_algorithms/Merge_sort#C
  * 
  * @param char 
  * @param arr_size 
  */
 void merge(unsigned char* element_arr, unsigned char arr_size, unsigned char middle);
-
-/**
- * @brief Implements the merge and sort algorithm
- * 
- * @param char 
- * @param arr_size 
- */
-void merge_sort(unsigned char* element_arr, unsigned char arr_size);
 
 #endif /* __STATS_H__ */

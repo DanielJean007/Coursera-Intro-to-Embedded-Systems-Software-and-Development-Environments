@@ -30,30 +30,21 @@
 
 void main()
 {
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+  unsigned char a[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  
-  // /**
-  //  * @brief Testing the merge_sort algorithm
-  //  * Adapted from: https://rosettacode.org/wiki/Sorting_algorithms/Merge_sort#C
-  //  */
-  // unsigned char a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255, 1};
-  // unsigned char n = sizeof a / sizeof a[0];
-  // for (int i = 0; i < n; i++)
-  // {
-  //   printf("%d%s", a[i], i == n - 1 ? "\n" : " ");
-  // }
-
-  // merge_sort(a, n);
-
-  // for (int i = 0; i < n; i++)
-  // {
-  //   printf("%d%s", a[i], i == n - 1 ? "\n" : " ");
-  // }
+  // unsigned char a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255};
+  unsigned char n = sizeof a / sizeof a[0];
+  print_array(a, n);
+  sort_array(a, n);
+  print_array(a, n);
+  printf("Maximum: %u\n", find_maximum(a, n));
+  printf("Minimum: %u\n", find_minimum(a, n));
+  printf("Mean: %u\n", find_mean(a, n));
+  printf("Median: %u\n", find_median(a, n));
 }
 
 
@@ -78,7 +69,7 @@ void merge(unsigned char* element_arr, unsigned char arr_size, unsigned char mid
 }
  
 
-void merge_sort(unsigned char* element_arr, unsigned char arr_size)
+void sort_array(unsigned char* element_arr, unsigned char arr_size)
 {
     if (arr_size < 2)
     {
@@ -87,7 +78,62 @@ void merge_sort(unsigned char* element_arr, unsigned char arr_size)
     
     int middle = arr_size / 2;
     
-    merge_sort(element_arr, middle);
-    merge_sort(element_arr + middle, arr_size - middle);
+    sort_array(element_arr, middle);
+    sort_array(element_arr + middle, arr_size - middle);
     merge(element_arr, arr_size, middle);
+}
+
+
+void print_array(unsigned char* element_arr, unsigned int arr_size)
+{
+  printf("Printing out the array: \n");
+  for (int i = 0; i < arr_size; i++)
+  {
+    printf("%d%s", element_arr[i], i == arr_size - 1 ? "\n" : " ");
+  }
+}
+
+
+unsigned char find_maximum(unsigned char* element_arr, unsigned int arr_size)
+{
+  sort_array(element_arr, arr_size);
+  return element_arr[arr_size-1];
+}
+
+
+unsigned char find_minimum(unsigned char* element_arr, unsigned int arr_size)
+{
+  sort_array(element_arr, arr_size);
+  return element_arr[0];
+}
+
+
+unsigned char find_mean(unsigned char* element_arr, unsigned int arr_size)
+{
+  int sum = 0;
+  for (int i = 0; i < arr_size; i++)
+  {
+    sum += element_arr[i];
+  }
+
+  return (unsigned char)(sum/arr_size);
+}
+
+
+unsigned char find_median(unsigned char* element_arr, unsigned int arr_size)
+{
+  int median = 0;
+  int middle = (arr_size/2); 
+  
+  if(arr_size%2 != 0) //Even size
+  {
+    printf("Array of even size\n");
+    median = element_arr[middle];
+  }else
+  {  
+    printf("Array of odd size\n");
+    median = (element_arr[middle-1] + element_arr[middle])/2;
+  }
+  
+  return (unsigned char)median;
 }
