@@ -22,22 +22,72 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "stats.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
-
+void main()
+{
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+  
+  // /**
+  //  * @brief Testing the merge_sort algorithm
+  //  * Adapted from: https://rosettacode.org/wiki/Sorting_algorithms/Merge_sort#C
+  //  */
+  // unsigned char a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255, 1};
+  // unsigned char n = sizeof a / sizeof a[0];
+  // for (int i = 0; i < n; i++)
+  // {
+  //   printf("%d%s", a[i], i == n - 1 ? "\n" : " ");
+  // }
 
+  // merge_sort(a, n);
+
+  // for (int i = 0; i < n; i++)
+  // {
+  //   printf("%d%s", a[i], i == n - 1 ? "\n" : " ");
+  // }
 }
 
-/* Add other Implementation File Code Here */
+
+void merge(unsigned char* element_arr, unsigned char arr_size, unsigned char middle)
+{
+    int i, j, k;
+    int *tmp = malloc(arr_size * sizeof (element_arr));
+    
+    for (i = 0, j = middle, k = 0; k < arr_size; k++)
+    {
+        tmp[k] = j == arr_size ? element_arr[i++] :
+                i == middle ? element_arr[j++] : 
+                element_arr[j] < element_arr[i] ? element_arr[j++] :
+                element_arr[i++];
+    }
+    for (i = 0; i < arr_size; i++)
+    {
+        element_arr[i] = tmp[i];
+    }
+
+    free(tmp);
+}
+ 
+
+void merge_sort(unsigned char* element_arr, unsigned char arr_size)
+{
+    if (arr_size < 2)
+    {
+      return;
+    }
+    
+    int middle = arr_size / 2;
+    
+    merge_sort(element_arr, middle);
+    merge_sort(element_arr + middle, arr_size - middle);
+    merge(element_arr, arr_size, middle);
+}
