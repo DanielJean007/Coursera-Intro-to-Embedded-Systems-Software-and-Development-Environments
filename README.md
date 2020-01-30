@@ -3,10 +3,12 @@ Simple assignment where we receive an array and print out some statistics.
 Sample output for {4, 65, 2, 31, 0, 99, 2, 83, 255}:
 
 Printing out the array: 
+
 4	65	2	31	0	99	2	83	255	
 
 
 Printing out the array: 
+
 255	99	83	65	31	4	2	2	0	
 
 
