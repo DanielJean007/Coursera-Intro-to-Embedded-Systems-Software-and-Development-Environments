@@ -149,7 +149,7 @@ unsigned char find_median(unsigned char* element_arr, unsigned int arr_size)
     sorted_array = 1;    
   }
   
-  if(arr_size%2 != 0) //Even size
+  if(arr_size%2 != 0) //Odd size?
   {
     printf("Array of odd size: %u\n", arr_size);
     median = element_arr[middle];
