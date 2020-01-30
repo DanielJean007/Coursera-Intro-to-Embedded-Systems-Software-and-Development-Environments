@@ -95,10 +95,15 @@ void sort_array(unsigned char* element_arr, unsigned char arr_size)
 void print_array(unsigned char* element_arr, unsigned int arr_size)
 {
   printf("Printing out the array: \n");
+  int counter = 0;
   for (int i = 0; i < arr_size; i++)
   {
-    printf("%d%s", element_arr[i], i == arr_size - 1 ? "\n" : " ");
+    counter++;
+    printf("%d%s", element_arr[i], counter==10? "\n" : "\t");
+    if(counter==10) counter = 0;
   }
+  printf("\n\n");
+
 }
 
 
