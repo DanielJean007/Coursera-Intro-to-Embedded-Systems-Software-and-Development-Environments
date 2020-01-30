@@ -27,6 +27,7 @@
 
 /* Size of the Data Set */
 #define SIZE (40)
+short sorted_array = 0;
 
 void main()
 {
@@ -39,7 +40,13 @@ void main()
   // unsigned char a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255};
   unsigned char n = sizeof a / sizeof a[0];
   print_array(a, n);
-  sort_array(a, n);
+  
+  if(sorted_array == 0) //Helps improving efficency of program. Only sorts if it wasn't sorted before.
+  {
+    sort_array(a, n);
+    sorted_array = 1;    
+  }
+  
   print_array(a, n);
   printf("Maximum: %u\n", find_maximum(a, n));
   printf("Minimum: %u\n", find_minimum(a, n));
@@ -71,16 +78,17 @@ void merge(unsigned char* element_arr, unsigned char arr_size, unsigned char mid
 
 void sort_array(unsigned char* element_arr, unsigned char arr_size)
 {
-    if (arr_size < 2)
-    {
-      return;
-    }
-    
-    int middle = arr_size / 2;
-    
-    sort_array(element_arr, middle);
-    sort_array(element_arr + middle, arr_size - middle);
-    merge(element_arr, arr_size, middle);
+  
+  if (arr_size < 2)
+  {
+    return;
+  }
+  
+  int middle = arr_size / 2;
+  
+  sort_array(element_arr, middle);
+  sort_array(element_arr + middle, arr_size - middle);
+  merge(element_arr, arr_size, middle);      
 }
 
 
@@ -96,14 +104,24 @@ void print_array(unsigned char* element_arr, unsigned int arr_size)
 
 unsigned char find_maximum(unsigned char* element_arr, unsigned int arr_size)
 {
-  sort_array(element_arr, arr_size);
+  if(sorted_array == 0) //Helps improving efficency of program. Only sorts if it wasn't sorted before.
+  {
+    sort_array(element_arr, arr_size);
+    sorted_array = 1;    
+  }
+
   return element_arr[arr_size-1];
 }
 
 
 unsigned char find_minimum(unsigned char* element_arr, unsigned int arr_size)
 {
-  sort_array(element_arr, arr_size);
+  if(sorted_array == 0) //Helps improving efficency of program. Only sorts if it wasn't sorted before.
+  {
+    sort_array(element_arr, arr_size);
+    sorted_array = 1;    
+  }
+  
   return element_arr[0];
 }
 
@@ -124,14 +142,20 @@ unsigned char find_median(unsigned char* element_arr, unsigned int arr_size)
 {
   int median = 0;
   int middle = (arr_size/2); 
+
+  if(sorted_array == 0) //Helps improving efficency of program. Only sorts if it wasn't sorted before.
+  {
+    sort_array(element_arr, arr_size);
+    sorted_array = 1;    
+  }
   
   if(arr_size%2 != 0) //Even size
   {
-    printf("Array of even size\n");
+    printf("Array of odd size: %u\n", arr_size);
     median = element_arr[middle];
   }else
   {  
-    printf("Array of odd size\n");
+    printf("Array of even size: %u\n", arr_size);
     median = (element_arr[middle-1] + element_arr[middle])/2;
   }
   
