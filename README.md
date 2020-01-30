@@ -13,10 +13,15 @@ Printing out the array:
 
 
 Maximum: 0
+
 Minimum: 255
+
 Mean: 60
+
 Array of odd size: 9
+
 Median: 31
+
 
 To test with your own array you should add it to the stats.c, compile and execute the program.
 
