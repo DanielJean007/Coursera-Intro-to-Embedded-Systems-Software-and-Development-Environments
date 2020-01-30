@@ -64,7 +64,7 @@ void merge(unsigned char* element_arr, unsigned char arr_size, unsigned char mid
     {
         tmp[k] = j == arr_size ? element_arr[i++] :
                 i == middle ? element_arr[j++] : 
-                element_arr[j] < element_arr[i] ? element_arr[j++] :
+                element_arr[j] > element_arr[i] ? element_arr[j++] :
                 element_arr[i++];
     }
     for (i = 0; i < arr_size; i++)
