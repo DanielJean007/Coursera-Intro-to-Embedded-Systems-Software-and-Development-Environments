@@ -103,7 +103,6 @@ void print_array(unsigned char* element_arr, unsigned int arr_size)
     if(counter==10) counter = 0;
   }
   printf("\n\n");
-
 }
 
 
