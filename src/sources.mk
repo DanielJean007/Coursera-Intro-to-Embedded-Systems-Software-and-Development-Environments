@@ -9,9 +9,26 @@
 #
 #*****************************************************************************
 
+# General source files used by both platforms
+GSRC = 	main.c \
+		memory.c
+
 # Add your Source files to this variable
-SOURCES =
+ifeq ($(PLATFORM),HOST)
+	SOURCES = 	$(GSRC)
+else
+	SOURCES = 	$(GSRC) \
+				interrupts_msp432p401r_gcc.c \
+				startup_msp432p401r_gcc.c \
+				system_msp432p401r.c
+endif
 
 # Add your include paths to this variable
-INCLUDES = 
+ifeq ($(PLATFORM),HOST)
+	INCLUDES =	-I../include/common/
+else
+	INCLUDES = 	-I../include/common/ \
+				-I../include/CMSIS/ \
+				-I../include/msp432/ 
+endif
 
