@@ -9,28 +9,32 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file Stats.c
+ * @brief Final assignement course1 embedded systems
  *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Daniel Vasconcelos
+ * @date 2020-02-08
  *
  */
-
 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "stats.h"
+#include "platform.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
 short sorted_array = 0;
 
-void main()
+void second_main()
 {
+  //In the assignment it says the print_array, but
+  // this is the function that prints out the stats
+  // So I'm generalizing the constraints.
+  // In the description it says that if the directive is
+  // not set then nothing should print.
+#ifdef VERBOSE
   unsigned char a[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
@@ -41,6 +45,9 @@ void main()
   unsigned int n = sizeof a / sizeof a[0];
 
   print_statistics(a, n);
+#endif
+
+  // return 0;
 }
 
 
@@ -83,15 +90,15 @@ void sort_array(unsigned char* element_arr, unsigned char arr_size)
 
 void print_array(unsigned char* element_arr, unsigned int arr_size)
 {
-  printf("Printing out the array: \n");
+  PRINTF("Printing out the array: \n");
   int counter = 0;
   for (int i = 0; i < arr_size; i++)
   {
     counter++;
-    printf("%d%s", element_arr[i], counter==10? "\n" : "\t");
+    PRINTF("%d%s", element_arr[i], counter==10? "\n" : "\t");
     if(counter==10) counter = 0;
   }
-  printf("\n\n");
+  PRINTF("\n\n");
 }
 
 
@@ -144,16 +151,17 @@ unsigned char find_median(unsigned char* element_arr, unsigned int arr_size)
   
   if(arr_size%2 != 0) //Odd size?
   {
-    printf("Array of odd size: %u\n", arr_size);
+    PRINTF("Array of odd size: %u\n", arr_size);
     median = element_arr[middle];
   }else
   {  
-    printf("Array of even size: %u\n", arr_size);
+    PRINTF("Array of even size: %u\n", arr_size);
     median = (element_arr[middle-1] + element_arr[middle])/2;
   }
   
   return (unsigned char)median;
 }
+
 
 void print_statistics(unsigned char* element_arr, unsigned int arr_size)
 {
@@ -165,8 +173,8 @@ void print_statistics(unsigned char* element_arr, unsigned int arr_size)
   }
   print_array(element_arr, arr_size);
 
-  printf("Maximum: %u\n", find_maximum(element_arr, arr_size));
-  printf("Minimum: %u\n", find_minimum(element_arr, arr_size));
-  printf("Mean: %u\n", find_mean(element_arr, arr_size));
-  printf("Median: %u\n", find_median(element_arr, arr_size));
+  PRINTF("Maximum: %u\n", find_maximum(element_arr, arr_size));
+  PRINTF("Minimum: %u\n", find_minimum(element_arr, arr_size));
+  PRINTF("Mean: %u\n", find_mean(element_arr, arr_size));
+  PRINTF("Median: %u\n", find_median(element_arr, arr_size));
 }

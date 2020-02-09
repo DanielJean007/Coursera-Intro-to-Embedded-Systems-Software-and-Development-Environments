@@ -22,6 +22,9 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
+#include <stdint.h>
+#include <stddef.h>
+
 /**
  * @brief Sets a value of a data array 
  *
@@ -89,5 +92,93 @@ void set_all(char * ptr, char value, unsigned int size);
  * @return void.
  */
 void clear_all(char * ptr, unsigned int size);
+
+/**
+ * @brief move contents of memory region to another
+ * 
+ * This function takes two byte pointers (one source and one destination) 
+ * and a length of bytes to move from the source location to the destination.
+ * The function handles overlap of source and destination. 
+ * Copy occurs with no data corruption
+ * 
+ * @param src Pointer to address of source (1st element) to be moved
+ * @param dst Pointer to address source will be moved
+ * @param length of the content to be moved
+ * @return uint8_t* pointer to the destination
+ */
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Unsafe copy from one source address to target address
+ * 
+ * This function takes two byte pointers (one source and one destination) 
+ * and a length of bytes to copy from the source location to the destination.
+ * The behavior is undefined if there is overlap of source and destination.
+ * Copy still occurs, but will likely corrupt the data.
+ * 
+ * @param src Pointer to address of source (1st element)
+ * @param dst Pointer to address source will be moved
+ * @param length of the content to be moved
+ * @return uint8_t* pointer to the destination
+ */
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Implements the memset operation from stdlib
+ * 
+ * This takes a pointer to a source memory location, 
+ * a length in bytes and set all locations of that memory to a given value.
+ * 
+ * @param src Pointer to address of source (1st element)
+ * @param length of the content to copied
+ * @param value to be set in all locations
+ * @return uint8_t* pointer to the source
+ */
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
+
+/**
+ * @brief set all position to zero
+ * 
+ * This takes a pointer to a memory location, 
+ * a length in bytes and zero out all of the memory.
+ * 
+ * @param src Pointer to address of source (1st element)
+ * @param length of the content to zerod out
+ * @return uint8_t* pointer to the source
+ */
+uint8_t * my_memzero(uint8_t * src, size_t length);
+
+/**
+ * @brief Reverses order of contents in memory
+ * 
+ * This takes a pointer to a memory location and
+ * a length in bytes and reverse the order of all of the bytes.
+ * 
+ * @param src Pointer to address of source (1st element)
+ * @param length of the content to be reversed
+ * @return uint8_t* pointer to the source.
+ */
+uint8_t * my_reverse(uint8_t * src, size_t length);
+
+/**
+ * @brief allocates memory of size length
+ * 
+ * This takes number of words to allocate in dynamic memory
+ * 
+ * @param length of word to be allocated
+ * @return int32_t* a pointer to memory if successful, 
+ *                  or a Null Pointer if not successful
+ */
+int32_t * reserve_words(size_t length);
+
+/**
+ * @brief Deallocate reserved memory
+ * 
+ * The function frees a dynamic memory allocation by 
+ * providing the pointer src to the function
+ * 
+ * @param src Pointer to allocated memory
+ */
+void free_words(int32_t * src);
 
 #endif /* __MEMORY_H__ */

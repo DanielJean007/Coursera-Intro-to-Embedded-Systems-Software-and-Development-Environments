@@ -10,25 +10,28 @@
 #*****************************************************************************
 
 # General source files used by both platforms
-GSRC = 	main.c \
-		memory.c
+GSRC = 	src/main.c \
+		src/memory.c \
+		src/course1.c \
+		src/data.c \
+		src/stats.c
 
 # Add your Source files to this variable
-ifeq ($(PLATFORM),HOST)
+ifeq ($(PLATFORM), HOST)
 	SOURCES = 	$(GSRC)
 else
 	SOURCES = 	$(GSRC) \
-				interrupts_msp432p401r_gcc.c \
-				startup_msp432p401r_gcc.c \
-				system_msp432p401r.c
+				src/interrupts_msp432p401r_gcc.c \
+				src/startup_msp432p401r_gcc.c \
+				src/system_msp432p401r.c
 endif
 
 # Add your include paths to this variable
-ifeq ($(PLATFORM),HOST)
-	INCLUDES =	-I../include/common/
+ifeq ($(PLATFORM), HOST)
+	INCLUDES =	-Iinclude/common/
 else
-	INCLUDES = 	-I../include/common/ \
-				-I../include/CMSIS/ \
-				-I../include/msp432/ 
+	INCLUDES = 	-Iinclude/common/ \
+				-Iinclude/CMSIS/ \
+				-Iinclude/msp432/ 
 endif
 

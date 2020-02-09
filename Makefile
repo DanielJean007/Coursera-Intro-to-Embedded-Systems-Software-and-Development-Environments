@@ -32,6 +32,8 @@
 #		HOST 	- Generates for the virtual machine
 # 		MSP432  - Generates for the arm microcontroller
 #------------------------------------------------------------------------------
+PLATFORM = HOST
+
 include sources.mk
 
 # Platform Overrides
@@ -43,8 +45,7 @@ ifeq ($(PLATFORM), HOST)
 else
 	CC = arm-none-eabi-gcc
 	LD = arm-none-eabi-ld
-	CC = arm-none-eabi-gcc
-	LINKER_FILE = ../msp432p401r.lds
+	LINKER_FILE = msp432p401r.lds
 	LDFLAGS = -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
 	CPU = cortex-m4
 	ARCH = 	thumb
@@ -61,7 +62,7 @@ else
 endif
 
 # General definitions
-TARGET = c1m2
+TARGET = src/course1
 CFLAGS = 	-Wall -Werror -g -O0 -std=c99 \
 			-D$(PLATFORM) $(ARMFLAGS)
 CPPFLAGS = -E
@@ -98,4 +99,4 @@ $(TARGET).out: $(OBJS) $(DEPS)
 
 .PHONY: clean
 clean:
-	rm -f *.o *.out *.asm *.d *.i *.map
+	rm -f src/*.o src/*.out src/*.asm src/*.d src/*.i src/*.map
