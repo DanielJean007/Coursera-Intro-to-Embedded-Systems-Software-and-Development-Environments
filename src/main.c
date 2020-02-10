@@ -23,6 +23,7 @@
 #include "platform.h"
 #include "memory.h"
 #include "course1.h"
+#include "stats.h"
 
 #define MAX_LENGTH (10)
 char buffer[MAX_LENGTH];
@@ -30,7 +31,10 @@ char buffer[MAX_LENGTH];
 /* A pretty boring main file */
 int main(void) {
 #ifdef COURSE1
-  course1();
+    uint8_t a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255};
+    uint8_t *b = my_reverse(a, sizeof(a[0]*9));
+    print_array(b, 9);
+    // course1();
 #else
   // The regular main as before
   unsigned int i;

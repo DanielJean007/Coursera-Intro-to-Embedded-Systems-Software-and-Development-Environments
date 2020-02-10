@@ -35,13 +35,13 @@ void second_main()
   // In the description it says that if the directive is
   // not set then nothing should print.
 #ifdef VERBOSE
-  unsigned char a[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
+  // unsigned char a[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+                              // 114, 88,   45,  76, 123,  87,  25,  23,
+                              // 200, 122, 150, 90,   92,  87, 177, 244,
+                              // 201,   6,  12,  60,   8,   2,   5,  67,
+                                // 7,  87, 250, 230,  99,   3, 100,  90};
 
-  // unsigned char a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255};
+  unsigned char a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255};
   unsigned int n = sizeof a / sizeof a[0];
 
   print_statistics(a, n);

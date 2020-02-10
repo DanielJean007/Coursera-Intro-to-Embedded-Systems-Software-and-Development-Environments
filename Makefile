@@ -33,8 +33,11 @@
 # 		MSP432  - Generates for the arm microcontroller
 #------------------------------------------------------------------------------
 PLATFORM = HOST
+VERBOSE_MODE = VERBOSE
+COURSE_MODE = COURSE1
 
 include sources.mk
+
 
 # Platform Overrides
 ifeq ($(PLATFORM), HOST)
@@ -64,7 +67,8 @@ endif
 # General definitions
 TARGET = src/course1
 CFLAGS = 	-Wall -Werror -g -O0 -std=c99 \
-			-D$(PLATFORM) $(ARMFLAGS)
+			-D$(PLATFORM) $(ARMFLAGS) \
+			-D$(VERBOSE_MODE) -D$(COURSE_MODE)
 CPPFLAGS = -E
 OBJS = $(SOURCES:.c=.o)
 DEPS = $(SOURCES:.c=.d)

@@ -24,6 +24,8 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * @brief Sets a value of a data array 
@@ -137,7 +139,7 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
 
 /**
- * @brief set all position to zero
+ * @brief set all positions to zero
  * 
  * This takes a pointer to a memory location, 
  * a length in bytes and zero out all of the memory.
