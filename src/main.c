@@ -31,9 +31,12 @@ char buffer[MAX_LENGTH];
 /* A pretty boring main file */
 int main(void) {
 #ifdef COURSE1
-    uint8_t a[] = {4, 65, 2, 31, 0, 99, 2, 83, 255};
-    uint8_t *b = my_reverse(a, sizeof(a[0]*9));
-    print_array(b, 9);
+    uint8_t a[] = {2, 3, 5, 7, 11, 17, 19, 23, 255};
+    size_t length = sizeof(a[0])*9;
+    PRINTF("Length: %ld\n", length);
+    print_array(a, length);
+    uint8_t *b = my_reverse(a, length);
+    print_array(b, length);
     // course1();
 #else
   // The regular main as before
