@@ -87,7 +87,6 @@ uint8_t * my_memzero(uint8_t * src, size_t length){
 
 uint8_t * my_reverse(uint8_t * src, size_t length){
     uint8_t curr_value, i;
-    printf("length = %ld\n", length);
     // We only need to swap from the endings to the middle
     for(i=0; i<length/2; i++){
         curr_value = *(src+i);

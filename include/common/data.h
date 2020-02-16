@@ -22,6 +22,8 @@
  * 
  */
 
+#include <stdint.h>
+
 /**
  * @brief Function to convert data from a standard integer type into an ASCII string.
  * 

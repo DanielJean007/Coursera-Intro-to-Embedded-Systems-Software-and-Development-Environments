@@ -27,8 +27,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <stdio.h>
-
 /**
  * @brief Sets a value of a data array 
  *
