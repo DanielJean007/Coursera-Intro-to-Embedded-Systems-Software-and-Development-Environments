@@ -31,6 +31,11 @@
 #define TEST_NO_ERROR       (0)
 #define TESTCOUNT           (8)
 
+// #define BASE_2  2
+// #define BASE_8  8
+#define BASE_10 10
+#define BASE_16 16
+
 /**
  * @brief function to run course1 materials
  * 

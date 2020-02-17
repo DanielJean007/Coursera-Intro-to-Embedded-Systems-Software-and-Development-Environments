@@ -27,7 +27,7 @@
 #define SIZE (40)
 short sorted_array = 0;
 
-void second_main()
+void main_stats()
 {
   //In the assignment it says the print_array, but
   // this is the function that prints out the stats
@@ -46,8 +46,6 @@ void second_main()
 
   print_statistics(a, n);
 #endif
-
-  // return 0;
 }
 
 

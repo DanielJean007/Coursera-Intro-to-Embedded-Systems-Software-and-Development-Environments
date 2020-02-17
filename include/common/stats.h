@@ -40,7 +40,7 @@
  * @brief Main function. The main entry point for your program
  * 
  */
-void second_main(void);
+void main_stats(void);
 
 /**
  * @brief A function that prints the statistics of an array including minimum, maximum, mean, and median.
