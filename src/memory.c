@@ -54,15 +54,15 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
     uint8_t* src_tmp = NULL;
     
     // Reserving space to copy src into
-    tmp = (uint8_t* ) malloc(sizeof(src)*length);
+    tmp = (uint8_t* )malloc(sizeof(src)*length);
 
     if(tmp != NULL){
         // Copy src into tmp
-        src_tmp = my_memcopy(tmp, src, length);
+        src_tmp = my_memcopy(src, tmp, length);
 
         if(src_tmp != NULL){
             // Prevents from corrupting data if src and dst overlap
-            dest_addrs =  my_memcopy(dst, src_tmp, length);
+            dest_addrs =  my_memcopy(tmp, dst, length);
         }
 
         // Free up space

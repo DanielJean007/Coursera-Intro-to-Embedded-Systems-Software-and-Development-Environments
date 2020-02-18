@@ -41,6 +41,7 @@ int8_t test_data1() {
   digits = my_itoa( num, ptr, BASE_16);   
   value = my_atoi( ptr, digits, BASE_16);
   #ifdef VERBOSE
+  PRINTF("  Number digits: %d\n", digits);
   PRINTF("  Initial number: %d\n", num);
   PRINTF("  Final Decimal number: %d\n", value);
   #endif
@@ -323,8 +324,10 @@ int8_t test_reverse()
 
 void course1(void) 
 {
+// #define TESTCOUNT 1
   uint8_t i;
   int8_t failed = 0;
+  
   int8_t results[TESTCOUNT];
 
   results[0] = test_data1();
