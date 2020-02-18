@@ -41,6 +41,7 @@
  */
 void set_value(char * ptr, unsigned int index, char value);
 
+
 /**
  * @brief Clear a value of a data array 
  *
@@ -54,6 +55,7 @@ void set_value(char * ptr, unsigned int index, char value);
  */
 void clear_value(char * ptr, unsigned int index);
 
+
 /**
  * @brief Returns a value of a data array 
  *
@@ -66,6 +68,7 @@ void clear_value(char * ptr, unsigned int index);
  * @return Value to be read.
  */
 char get_value(char * ptr, unsigned int index);
+
 
 /**
  * @brief Sets data array elements to a value
@@ -82,6 +85,7 @@ char get_value(char * ptr, unsigned int index);
  */
 void set_all(char * ptr, char value, unsigned int size);
 
+
 /**
  * @brief Clears elements in a data array
  *
@@ -94,6 +98,7 @@ void set_all(char * ptr, char value, unsigned int size);
  * @return void.
  */
 void clear_all(char * ptr, unsigned int size);
+
 
 /**
  * @brief move contents of memory region to another
@@ -110,6 +115,7 @@ void clear_all(char * ptr, unsigned int size);
  */
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
 
+
 /**
  * @brief Unsafe copy from one source address to target address
  * 
@@ -125,6 +131,7 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
  */
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
 
+
 /**
  * @brief Implements the memset operation from stdlib
  * 
@@ -138,6 +145,7 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
  */
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
 
+
 /**
  * @brief set all positions to zero
  * 
@@ -149,6 +157,7 @@ uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
  * @return uint8_t* pointer to the source
  */
 uint8_t * my_memzero(uint8_t * src, size_t length);
+
 
 /**
  * @brief Reverses order of contents in memory
@@ -162,6 +171,7 @@ uint8_t * my_memzero(uint8_t * src, size_t length);
  */
 uint8_t * my_reverse(uint8_t * src, size_t length);
 
+
 /**
  * @brief allocates memory of size length
  * 
@@ -172,6 +182,7 @@ uint8_t * my_reverse(uint8_t * src, size_t length);
  *                  or a Null Pointer if not successful
  */
 int32_t * reserve_words(size_t length);
+
 
 /**
  * @brief Deallocate reserved memory
